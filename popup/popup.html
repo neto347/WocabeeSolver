@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h2>Wocabee Solver</h2>
+    </div>
+    
+    <div class="toggle-section">
+      <div class="toggle-label">
+        <span class="toggle-label-text">Zapisování</span>
+        <span class="toggle-label-desc" id="statusText">0 slovíček</span>
+      </div>
+      <div class="toggle-switch" id="toggleSwitch">
+        <div class="toggle-slider"></div>
+      </div>
+    </div>
+
+    <div class="toggle-section">
+      <div class="toggle-label">
+        <span class="toggle-label-text">Stealth Mód</span>
+        <span class="toggle-label-desc" id="stealthStatusText">Vypnuto</span>
+      </div>
+      <div class="toggle-switch" id="stealthToggleSwitch">
+        <div class="toggle-slider"></div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button id="viewWordsBtn">Zobrazit Slovíčka</button>
+    </div>
+    
+    <div class="info">
+      krucipísek edice 2.0.0
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

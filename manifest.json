@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Wocabee Solver",
+  "version": "2.0",
+  "description": "Shows answers for wocabee exercises.",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.wocabee.app/app/student/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Wocabee Solver"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.wocabee.app/app/student/*"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "js": [
+        "content/storage.js",
+        "content/helpers.js",
+        "content/stealth.js",
+        "content/capturer.js",
+        "content/solvers/chooseWord.js",
+        "content/solvers/chooseSpelling.js",
+        "content/solvers/listenAndChoose.js",
+        "content/solvers/completeWord.js",
+        "content/solvers/oneOutOfMany.js",
+        "content/solvers/translateWord.js",
+        "content/solvers/translateFallingWord.js",
+        "content/solvers/pexeso.js",
+        "content/solvers/findPair.js",
+        "content/solvers/choosePicture.js",
+        "content/solvers/describePicture.js",
+        "content/index.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Zaznamenaná Slovíčka</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <h2>Zaznamenaná Slovíčka</h2>
+        <span class="count-badge" id="wordCount">0 slovíček</span>
+      </div>
+      <div class="header-actions">
+        <button id="importBtn" class="btn btn-secondary">Importovat</button>
+        <button id="exportBtn" class="btn btn-primary">Exportovat vše</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Hledat ve slovíčkách nebo překladech..." autocomplete="off">
+      </div>
+
+      <div class="selection-controls">
+        <label class="select-all-label">
+          <input type="checkbox" id="selectAllCheckbox">
+          <span>Vybrat vše</span>
+        </label>
+        <div class="bulk-actions" id="bulkActions" style="display: none;">
+          <button id="deleteSelectedBtn" class="btn btn-danger btn-sm">Smazat vybrané (<span
+              id="selectedCount">0</span>)</button>
+          <button id="exportSelectedBtn" class="btn btn-secondary btn-sm">Exportovat vybrané</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="wordsList"></div>
+  </div>
+
+  <!-- Import Modal -->
+  <div id="importModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Importovat slovíčka</h2>
+        <button class="close" id="importCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Vložte JSON pole nebo řádky ve formátu <code>slovo = překlad</code>:</p>
+        <textarea id="importTextarea" rows="8"
+          placeholder='dog = pes&#10;cat = kočka&#10;nebo JSON: [{"word":"dog","translation":"pes"}]'></textarea>
+
+        <div class="file-upload-row">
+          <label class="file-upload-btn">
+            <span>Nahrát ze souboru (.json)</span>
+            <input type="file" id="importFileInput" accept=".json,.txt">
+          </label>
+        </div>
+
+        <div class="import-mode-options">
+          <label><input type="radio" name="importMode" value="merge" checked> Sloučit s existujícími</label>
+          <label><input type="radio" name="importMode" value="replace"> Nahradit všechna existující</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="importCancelBtn" class="btn btn-secondary">Zrušit</button>
+        <button id="importSubmitBtn" class="btn btn-primary">Importovat</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="manager.js"></script>
+</body>
+
+</html>
